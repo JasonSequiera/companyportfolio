@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import { supabase } from '../../supabaseClient'; // Make sure you created this file
 
 const contactInfo = [
   {
@@ -37,16 +38,28 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setIsSubmitting(false);
-    
-    // Reset form
+
     const form = e.target as HTMLFormElement;
-    form.reset();
+    const formData = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      subject: (form.elements.namedItem('subject') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    const { error } = await supabase
+      .from('contact_info')
+      .insert([formData]);
+
+    if (error) {
+      toast.error("❌ Failed to send message. Try again!");
+      console.error(error);
+    } else {
+      toast.success("✅ Message sent successfully! We'll get back to you soon.");
+      form.reset();
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -139,82 +152,55 @@ export const Contact = () => {
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                    >
-                      <Input
-                        placeholder="Your Name"
-                        required
-                        className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
-                      />
-                    </motion.div>
-                    
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.7 }}
-                    >
-                      <Input
-                        type="email"
-                        placeholder="Your Email"
-                        required
-                        className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
-                      />
-                    </motion.div>
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
+                    />
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      required
+                      className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
+                    />
                   </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    <Input
-                      placeholder="Subject"
-                      required
-                      className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
-                    />
-                  </motion.div>
+                  <Input
+                    name="subject"
+                    placeholder="Subject"
+                    required
+                    className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
+                  />
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.9 }}
-                  >
-                    <Textarea
-                      placeholder="Tell us about your project..."
-                      rows={6}
-                      required
-                      className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
-                    />
-                  </motion.div>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell us about your project..."
+                    rows={6}
+                    required
+                    className="bg-background-secondary border-card-border focus:border-primary transition-colors duration-300"
+                  />
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 1.0 }}
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg py-6 rounded-xl"
                   >
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg py-6 rounded-xl"
-                    >
-                      {isSubmitting ? (
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                        />
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5 mr-2" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </motion.div>
+                    {isSubmitting ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                      />
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
                 </form>
               </CardContent>
             </Card>
