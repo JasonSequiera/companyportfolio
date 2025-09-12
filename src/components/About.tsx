@@ -7,7 +7,7 @@ const stats = [
   { icon: Users, label: 'Happy Clients', value: 150, suffix: '+' },
   { icon: Award, label: 'Awards Won', value: 25, suffix: '+' },
   { icon: Coffee, label: 'Projects Completed', value: 300, suffix: '+' },
-  { icon: Calendar, label: 'Years Experience', value: 8, suffix: '' },
+  { icon: Calendar, label: 'Years Experience', value: 3, suffix: '' },
 ];
 
 const Counter = ({ end, suffix = '', duration = 2 }) => {
@@ -123,18 +123,22 @@ export const About = () => {
             </h3>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Founded in 2016, we started as a small team with a big vision: 
-                to create digital experiences that truly matter. What began as a 
-                passion project has grown into a full-service digital agency.
+                At NexaWeb Solutions, we are passionate about transforming ideas into impactful 
+                digital experiences. Founded in 2025, our startup web development company is dedicated to 
+                crafting innovative, user-centric websites and applications that empower businesses to thrive 
+                in the digital age. 
               </p>
               <p>
-                Today, we work with startups and Fortune 500 companies alike, 
-                helping them navigate the digital landscape and achieve their goals 
-                through innovative technology and creative solutions.
+                Based in the heart of the tech ecosystem, our team of skilled developers, designers, and strategists 
+                brings creativity and technical expertise to every project. Our mission is to deliver cutting-edge 
+                web solutions that blend seamless functionality with stunning design. From startups to 
+                established enterprise.
               </p>
               <p>
-                Our mission remains unchanged: to build beautiful, functional, 
-                and impactful digital products that make a difference in people's lives.
+                At NexaWeb, we believe in pushing boundaries. Our services include custom website development, 
+                e-commerce solutions, UI/UX design, and scalable web applications, all tailored to meet the unique 
+                needs of our clients. NexaWeb Solutions is here to help businesses navigate the digital landscape with 
+                confidence. Let’s build the future of the web together!
               </p>
             </div>
           </motion.div>

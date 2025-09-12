@@ -1,32 +1,25 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { supabase } from '../../supabaseClient'; // Make sure you created this file
+import { supabase } from '../../supabaseClient';
 
 const contactInfo = [
   {
     icon: Mail,
     title: 'Email Us',
-    details: 'hello@company.com',
+    details: 'Nexawebsolutions.info@gmail.com',
     description: 'Drop us a line anytime',
   },
   {
     icon: Phone,
     title: 'Call Us',
-    details: '+1 (555) 123-4567',
-    description: 'Mon-Fri from 8am to 6pm',
-  },
-  {
-    icon: MapPin,
-    title: 'Visit Us',
-    details: '123 Innovation Street, Tech City, TC 12345',
-    description: 'Come say hello at our office',
+    details: '+91 9925884936',
+    description: 'Mon-Fri from 10am to 7pm',
   },
 ];
 
@@ -100,12 +93,12 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Info */}
           <motion.div
-            className="lg:col-span-1"
+            className="lg:col-span-1 flex flex-col items-center justify-center mt-12"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="space-y-8">
+            <div className="space-y-8 w-full max-w-md">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}

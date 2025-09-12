@@ -82,19 +82,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-xl"
-            >
-              Discover Our Work
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-primary/50 text-primary hover:bg-primary/10 transition-all duration-300 text-lg px-8 py-6 rounded-xl"
-            >
-              Get In Touch
-            </Button>
+        
           </motion.div>
         </motion.div>
       </div>

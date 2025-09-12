@@ -29,7 +29,7 @@ const Index = () => {
             Transforming ideas into extraordinary digital experiences.
           </p>
           <p className="text-sm text-muted-foreground">
-            © 2024 NexaWeb Solutions. All rights reserved.
+            © 2025 NexaWeb Solutions. All rights reserved.
           </p>
         </div>
       </footer>

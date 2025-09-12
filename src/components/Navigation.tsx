@@ -51,7 +51,7 @@ export const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold gradient-text cursor-pointer"
             >
-              InnovateStudio
+              NexaWeb Solutions
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -70,12 +70,7 @@ export const Navigation = () => {
                 </motion.button>
               ))}
               
-              <Button 
-                className="bg-gradient-primary hover:shadow-glow transition-all duration-300 ml-4"
-                onClick={() => scrollToSection('#contact')}
-              >
-                Let's Talk
-              </Button>
+          
             </div>
 
             {/* Mobile Menu Button */}
@@ -123,12 +118,7 @@ export const Navigation = () => {
               transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
               className="pt-6"
             >
-              <Button 
-                className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
-                onClick={() => scrollToSection('#contact')}
-              >
-                Let's Talk
-              </Button>
+             
             </motion.div>
           </div>
         </div>

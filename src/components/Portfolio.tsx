@@ -7,47 +7,47 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A modern, scalable e-commerce solution with advanced analytics and AI-powered recommendations.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    title: 'DesignYourStep',
+    description: 'DesignYourStep is a customizable footwear platform that lets customers design their shoes online with an interactive 3D model before ordering.',
+    tech: ['React', 'Node.js', 'PHP', 'Stripe', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
     category: 'Web Development',
     gradient: 'from-primary to-secondary',
   },
   {
-    title: 'Mobile Banking App',
-    description: 'Secure, user-friendly mobile banking application with biometric authentication and real-time transactions.',
-    tech: ['React Native', 'TypeScript', 'Firebase', 'Plaid'],
-    category: 'Mobile Development',
+    title: 'LearnLink',
+    description: 'Learn-Link is a web Application that provides services like hiring tutors for home tutoring or online tutoring sessions and booking a session for consultation with different consultants.',
+    tech: ['PHP', 'JavaScript', 'HTML', 'CSS', 'MySQL'],
+    category: 'Web Development',
     gradient: 'from-secondary to-accent',
   },
   {
-    title: 'SaaS Dashboard',
+    title: 'E-Commerce Platform',
     description: 'Comprehensive analytics dashboard for SaaS businesses with real-time data visualization.',
     tech: ['Vue.js', 'D3.js', 'Python', 'AWS'],
-    category: 'Data Analytics',
+    category: 'Web Development',
     gradient: 'from-accent to-primary',
   },
-  {
-    title: 'AI Content Platform',
-    description: 'Revolutionary AI-powered content creation platform with natural language processing capabilities.',
-    tech: ['Next.js', 'OpenAI', 'Prisma', 'Vercel'],
-    category: 'AI/Machine Learning',
-    gradient: 'from-primary/80 to-secondary/80',
-  },
-  {
-    title: 'Healthcare Portal',
-    description: 'HIPAA-compliant patient management system with telemedicine capabilities and appointment scheduling.',
-    tech: ['Angular', 'Spring Boot', 'MySQL', 'WebRTC'],
-    category: 'Healthcare',
-    gradient: 'from-secondary/80 to-accent/80',
-  },
-  {
-    title: 'Blockchain Wallet',
-    description: 'Secure cryptocurrency wallet with multi-chain support and DeFi integration capabilities.',
-    tech: ['React', 'Web3.js', 'Solidity', 'Metamask'],
-    category: 'Blockchain',
-    gradient: 'from-accent/80 to-primary/80',
-  },
+  // {
+  //   title: 'AI Content Platform',
+  //   description: 'Revolutionary AI-powered content creation platform with natural language processing capabilities.',
+  //   tech: ['Next.js', 'OpenAI', 'Prisma', 'Vercel'],
+  //   category: 'AI/Machine Learning',
+  //   gradient: 'from-primary/80 to-secondary/80',
+  // },
+  // {
+  //   title: 'Healthcare Portal',
+  //   description: 'HIPAA-compliant patient management system with telemedicine capabilities and appointment scheduling.',
+  //   tech: ['Angular', 'Spring Boot', 'MySQL', 'WebRTC'],
+  //   category: 'Healthcare',
+  //   gradient: 'from-secondary/80 to-accent/80',
+  // },
+  // {
+  //   title: 'Blockchain Wallet',
+  //   description: 'Secure cryptocurrency wallet with multi-chain support and DeFi integration capabilities.',
+  //   tech: ['React', 'Web3.js', 'Solidity', 'Metamask'],
+  //   category: 'Blockchain',
+  //   gradient: 'from-accent/80 to-primary/80',
+  // },
 ];
 
 export const Portfolio = () => {
@@ -156,12 +156,12 @@ export const Portfolio = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Button 
+          {/* <Button 
             size="lg" 
             className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6 rounded-xl"
           >
             View All Projects
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </section>
