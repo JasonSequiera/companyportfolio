@@ -12,42 +12,24 @@ const projects = [
     tech: ['React', 'Node.js', 'PHP', 'Stripe', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
     category: 'Web Development',
     gradient: 'from-primary to-secondary',
+    githubLink: 'https://github.com/JasonSequiera/DesignYourStep',
   },
   {
     title: 'LearnLink',
-    description: 'Learn-Link is a web Application that provides services like hiring tutors for home tutoring or online tutoring sessions and booking a session for consultation with different consultants.',
+    description: 'Learn-Link is a web Application that provides services like hiring tutors for home tutoring or online tutoring sessions and booking a session for consultation with different consultants.',
     tech: ['PHP', 'JavaScript', 'HTML', 'CSS', 'MySQL'],
     category: 'Web Development',
     gradient: 'from-secondary to-accent',
+    githubLink: 'https://github.com/JasonSequiera/LearnLink',
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'Comprehensive analytics dashboard for SaaS businesses with real-time data visualization.',
-    tech: ['Vue.js', 'D3.js', 'Python', 'AWS'],
+    title: 'Book-E-Pedia',
+    description: 'Book-E-Pedia is an online platform for book enthusiasts to explore, review, and purchase books with personalized recommendations.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     category: 'Web Development',
     gradient: 'from-accent to-primary',
+    githubLink: 'https://github.com/JasonSequiera/BookEPedia',
   },
-  // {
-  //   title: 'AI Content Platform',
-  //   description: 'Revolutionary AI-powered content creation platform with natural language processing capabilities.',
-  //   tech: ['Next.js', 'OpenAI', 'Prisma', 'Vercel'],
-  //   category: 'AI/Machine Learning',
-  //   gradient: 'from-primary/80 to-secondary/80',
-  // },
-  // {
-  //   title: 'Healthcare Portal',
-  //   description: 'HIPAA-compliant patient management system with telemedicine capabilities and appointment scheduling.',
-  //   tech: ['Angular', 'Spring Boot', 'MySQL', 'WebRTC'],
-  //   category: 'Healthcare',
-  //   gradient: 'from-secondary/80 to-accent/80',
-  // },
-  // {
-  //   title: 'Blockchain Wallet',
-  //   description: 'Secure cryptocurrency wallet with multi-chain support and DeFi integration capabilities.',
-  //   tech: ['React', 'Web3.js', 'Solidity', 'Metamask'],
-  //   category: 'Blockchain',
-  //   gradient: 'from-accent/80 to-primary/80',
-  // },
 ];
 
 export const Portfolio = () => {
@@ -109,12 +91,19 @@ export const Portfolio = () => {
                     className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="ghost" className="text-white hover:bg-white/20">
-                        <Github className="w-4 h-4" />
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-white hover:bg-white/20"
+                        asChild
+                      >
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4" />
+                        </a>
                       </Button>
-                      <Button size="sm" variant="ghost" className="text-white hover:bg-white/20">
+                      {/* <Button size="sm" variant="ghost" className="text-white hover:bg-white/20">
                         <ExternalLink className="w-4 h-4" />
-                      </Button>
+                      </Button> */}
                     </div>
                   </motion.div>
                 </div>
